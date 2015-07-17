@@ -1,20 +1,21 @@
 #~/.bash_aliases
 # enable color support of ls and also add handy aliases
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
+    # Make grep colorful and skip .svn
+    alias grep='grep --color=auto --exclude-dir=".svn"'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-#fi
+fi
 
 # some more ls aliases
-alias ls='ls -G'
+#alias ls='ls -G'
 alias ll='ls -alF -h -G'
-alias la='ls -A'
+#alias la='ls -A'
 alias l='ls -CF'
 
 alias ..='cd ..'
@@ -22,8 +23,8 @@ alias ..='cd ..'
 # awesome!  CD AND LA. I never use 'cd' anymore...
 function cl(){ cd "$@" && la; }
 
-## Edited By Hao Lin 
-alias rm!="/bin/rm -vi" 
+## Edited By Hao Lin
+alias rm!="/bin/rm -vi"
 
 alias rm='~/bin/trashit'
 alias lrm='ls ~/.Trash'
